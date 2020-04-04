@@ -81,9 +81,13 @@ source $ZSH/oh-my-zsh.sh
 # For a full list of active aliases, run `alias`.
 #
 # Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
+alias zshconfig="source ~/.zshrc"
+alias ohmyzsh="source ~/.oh-my-zsh"
+alias web3playground="cd /mnt/c/Users/migue/Documents/docker/web3py-playground"
+alias repos="cd /mnt/c/Users/migue/Documents/docker"
+alias code="vscode.exe"
+alias addresses="cd /home/mcabeza/.ethereum/passphrase"
+alias startkeeper="sh /mnt/c/Users/migue/Documents/docker/auction-keeper/startkeeper.sh"
 for config (~/.zsh/*.zsh) source $config
 
 LESSPIPE=`which src-hilite-lesspipe.sh`
@@ -94,3 +98,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 autoload -U compinit && compinit
+
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)" 
+#reload NIX for DappTools
+. "/home/mcabeza/.nix-profile/etc/profile.d/nix.sh"

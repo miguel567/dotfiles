@@ -7,5 +7,6 @@ export PATH=${PATH}:$GOPATH/bin
 export PATH="/usr/local/sbin:$PATH"
 
 export PATH="$HOME/.rbenv/bin:$PATH"
-
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv virtualenv-init -)"
 export EDITOR='vim'
