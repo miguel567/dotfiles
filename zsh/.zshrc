@@ -1,5 +1,5 @@
 setopt auto_cd
-cdpath=($HOME/dev)
+cdpath=($HOME)
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
@@ -51,7 +51,7 @@ ZSH_THEME="af-magic"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git osx adb python sudo docker zsh-completions)
+plugins=(git osx adb python sudo docker zsh-completions virtualenv)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -84,10 +84,20 @@ source $ZSH/oh-my-zsh.sh
 alias zshconfig="source ~/.zshrc"
 alias ohmyzsh="source ~/.oh-my-zsh"
 alias web3playground="cd /mnt/c/Users/migue/Documents/docker/web3py-playground"
-alias repos="cd /mnt/c/Users/migue/Documents/docker"
+alias repos="cd /home/miguel/public"
 alias code="vscode.exe"
 alias addresses="cd /home/mcabeza/.ethereum/passphrase"
 alias startkeeper="sh /mnt/c/Users/migue/Documents/docker/auction-keeper/startkeeper.sh"
+alias hdd="cd /home/miguel/hdd/home/miguel"
+alias alwayskovan="/home/miguel/kovan/alwayskovan"
+alias alwayskovan2="/home/miguel/kovan2/alwayskovan2"
+alias alwaysmainnet="/home/miguel/mainnet/alwaysmainnet"
+alias alwaysgeth-mainnet="/home/miguel/geth-mainnet/alwaysgeth-mainnet"
+alias mysql1="sudo docker exec -it mysql1 mysql -uroot -p"
+alias watchcron="watch -n 10 tail -n 25 /var/log/cron.log"
+alias forkmainnet="ganache-cli -v --networkId 1 --host 0.0.0.0 --account='0x9839d00d2cda0eb4d4c79213b485f1f1032b1ace7f00577037410bc86a5088e1,100000000000000000000' -f http://localhost:8565"
+alias topy="top -o %CPU -d 20"
+
 for config (~/.zsh/*.zsh) source $config
 
 LESSPIPE=`which src-hilite-lesspipe.sh`
@@ -98,8 +108,14 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 autoload -U compinit && compinit
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)" 
+source ~/.profile
+fpath+=($ZSH/plugins/docker)
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)" 
 #reload NIX for DappTools
-. "/home/mcabeza/.nix-profile/etc/profile.d/nix.sh"
+#. "/home/mcabeza/.nix-profile/etc/profile.d/nix.sh"
+##nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
